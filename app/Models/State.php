@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['country_id', 'name'])]
 class State extends Model
 {
-    protected $fillable = ['country_id', 'name'];
-
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
