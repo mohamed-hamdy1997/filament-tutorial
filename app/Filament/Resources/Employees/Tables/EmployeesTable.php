@@ -4,10 +4,12 @@ namespace App\Filament\Resources\Employees\Tables;
 
 use Carbon\Carbon;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\FiltersLayout;
@@ -95,6 +97,11 @@ class EmployeesTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make()->successNotification(Notification::make()
+                        ->success()
+                        ->title('Employee Deleted.')
+                        ->body('The employee has been successfully deleted.')
+                ),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
