@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 class LatestAppEmployees extends TableWidget
 {
     protected static ?int $sort = 2;
+
     public function table(Table $table): Table
     {
         return $table
@@ -29,7 +30,7 @@ class LatestAppEmployees extends TableWidget
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
-                    ->sortable()
+                    ->sortable(),
             ])
             ->filters([
                 //

@@ -23,6 +23,7 @@ class UserResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
 
     protected static ?string $recordTitleAttribute = 'name';
+
     protected static string|null|\UnitEnum $navigationGroup = 'User Management';
 
     public static function form(Schema $schema): Schema

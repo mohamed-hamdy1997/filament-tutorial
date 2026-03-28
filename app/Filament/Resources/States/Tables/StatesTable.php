@@ -17,7 +17,7 @@ class StatesTable
             ->columns([
                 TextColumn::make('country.name')
                     ->sortable()
-                ->searchable(isIndividual: true),
+                    ->searchable(isIndividual: true),
                 TextColumn::make('name')
                     ->searchable(isIndividual: true),
                 TextColumn::make('created_at')

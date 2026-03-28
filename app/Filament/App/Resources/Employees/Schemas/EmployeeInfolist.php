@@ -42,7 +42,7 @@ class EmployeeInfolist
                         TextEntry::make('created_at')
                             ->dateTime()
                             ->placeholder('-'),
-                    ])->columns(3)
+                    ])->columns(3),
             ]);
     }
 }

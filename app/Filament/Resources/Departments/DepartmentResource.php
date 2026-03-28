@@ -23,11 +23,14 @@ class DepartmentResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
-    protected static string|null|\UnitEnum $navigationGroup = 'System Management';
-    protected static ?string $navigationLabel = 'Department';
-    protected static ?string $modelLabel = 'Employees Departments';
-    protected static ?int $navigationSort = 3;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'System Management';
+
+    protected static ?string $navigationLabel = 'Department';
+
+    protected static ?string $modelLabel = 'Employees Departments';
+
+    protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema
     {

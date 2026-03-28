@@ -3,9 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Http\Middleware\VerifyIsAdmin;
-use App\Models\Team;
 use Filament\Actions\Action;
-use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -64,7 +62,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                VerifyIsAdmin::class
+                VerifyIsAdmin::class,
             ]);
     }
 }

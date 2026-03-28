@@ -25,8 +25,11 @@ class StateResource extends Resource
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static string|null|\UnitEnum $navigationGroup = 'System Management';
+
     protected static ?string $navigationLabel = 'State';
+
     protected static ?string $modelLabel = 'Employees States';
+
     protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
@@ -62,7 +65,7 @@ class StateResource extends Resource
                 ->schema([
                     TextEntry::make('name')->label('State Name'),
                     TextEntry::make('country.name')->label('Country Name'),
-                ])->columnSpanFull()->columns(2)
+                ])->columnSpanFull()->columns(2),
         ]);
     }
 }

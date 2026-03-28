@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\States\Schemas;
 
-use App\Models\Country;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;

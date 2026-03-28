@@ -22,7 +22,7 @@ class DepartmentInfolist
                         TextEntry::make('updated_at')
                             ->dateTime()
                             ->placeholder('-'),
-                    ])->columnSpanFull()->columns(4)
+                    ])->columnSpanFull()->columns(4),
             ]);
     }
 }

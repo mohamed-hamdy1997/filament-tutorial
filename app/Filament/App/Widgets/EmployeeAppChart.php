@@ -9,7 +9,9 @@ use Filament\Widgets\ChartWidget;
 class EmployeeAppChart extends ChartWidget
 {
     protected ?string $heading = 'Employee App Chart';
+
     protected static ?int $sort = 3;
+
     protected function getData(): array
     {
         $data = Employee::query()
@@ -25,6 +27,7 @@ class EmployeeAppChart extends ChartWidget
 
         $months = collect(range(1, 12))->mapWithKeys(function ($month) {
             $key = now()->startOfYear()->addMonths($month - 1)->format('Y-m');
+
             return [$key => 0];
         });
 

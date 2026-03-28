@@ -3,13 +3,14 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Employee;
-use Filament\Facades\Filament;
 use Filament\Widgets\ChartWidget;
 
 class EmployeeAdminChart extends ChartWidget
 {
     protected ?string $heading = 'Employee Admin Chart';
+
     protected string $color = 'info';
+
     protected static ?int $sort = 3;
 
     protected function getData(): array
@@ -26,6 +27,7 @@ class EmployeeAdminChart extends ChartWidget
 
         $months = collect(range(1, 12))->mapWithKeys(function ($month) {
             $key = now()->startOfYear()->addMonths($month - 1)->format('Y-m');
+
             return [$key => 0];
         });
 

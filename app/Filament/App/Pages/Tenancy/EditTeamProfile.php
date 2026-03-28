@@ -8,7 +8,6 @@ use Filament\Schemas\Schema;
 
 class EditTeamProfile extends EditTenantProfile
 {
-
     public static function getLabel(): string
     {
         return 'Team Profile';

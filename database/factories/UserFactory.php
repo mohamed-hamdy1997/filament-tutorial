@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('12345'),
             'remember_token' => Str::random(10),
-            'is_admin' => true
+            'is_admin' => true,
         ];
     }
 

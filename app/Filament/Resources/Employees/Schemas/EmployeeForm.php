@@ -9,8 +9,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
-use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
@@ -35,14 +35,14 @@ class EmployeeForm
                             ->required(),
                         Select::make('state_id')
                             ->required()
-                            ->options(fn(Get $get): Collection => State::where('country_id', $get('country_id'))->withoutGlobalScopes()->get()->pluck('name', 'id'))
+                            ->options(fn (Get $get): Collection => State::where('country_id', $get('country_id'))->withoutGlobalScopes()->get()->pluck('name', 'id'))
                             ->searchable()
                             ->live()
-                            ->afterStateUpdated(fn(Set $set) => $set('city_id', null))
+                            ->afterStateUpdated(fn (Set $set) => $set('city_id', null))
                             ->preload(),
                         Select::make('city_id')
                             ->required()
-                            ->options(fn(Get $get): Collection => City::where('state_id', $get('state_id'))->withoutGlobalScopes()->get()->pluck('name', 'id'))
+                            ->options(fn (Get $get): Collection => City::where('state_id', $get('state_id'))->withoutGlobalScopes()->get()->pluck('name', 'id'))
                             ->searchable()
                             ->preload(),
                         Select::make('department_id')
@@ -88,7 +88,7 @@ class EmployeeForm
                         DatePicker::make('date_hired')
                             ->required()
                             ->native(false)
-                            ->displayFormat('d/m/Y')
+                            ->displayFormat('d/m/Y'),
                     ])
                     ->columnSpanFull()
                     ->columns(2),

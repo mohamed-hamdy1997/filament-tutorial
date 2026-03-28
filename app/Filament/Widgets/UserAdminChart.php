@@ -8,6 +8,7 @@ use Filament\Widgets\ChartWidget;
 class UserAdminChart extends ChartWidget
 {
     protected ?string $heading = 'User Admin Chart';
+
     protected static ?int $sort = 2;
 
     protected function getData(): array
@@ -24,6 +25,7 @@ class UserAdminChart extends ChartWidget
 
         $months = collect(range(1, 12))->mapWithKeys(function ($month) {
             $key = now()->startOfYear()->addMonths($month - 1)->format('Y-m');
+
             return [$key => 0];
         });
 

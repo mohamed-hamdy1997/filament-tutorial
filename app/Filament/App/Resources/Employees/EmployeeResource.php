@@ -26,6 +26,7 @@ class EmployeeResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     protected static ?string $recordTitleAttribute = 'first_name';
+
     protected static string|null|\UnitEnum $navigationGroup = 'Employee Management';
 
     public static function getGloballySearchableAttributes(): array
@@ -35,7 +36,7 @@ class EmployeeResource extends Resource
 
     public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
-        return $record->first_name . ' ' . $record->last_name;
+        return $record->first_name.' '.$record->last_name;
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array

@@ -19,7 +19,7 @@ class CityInfolist
                         TextEntry::make('created_at')
                             ->dateTime()
                             ->placeholder('-'),
-                    ])->columnSpanFull()->columns(3)
+                    ])->columnSpanFull()->columns(3),
             ]);
     }
 }

@@ -12,6 +12,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 class StatsAppChart extends StatsOverviewWidget
 {
     protected static ?int $sort = 1;
+
     protected function getStats(): array
     {
         return [
@@ -26,10 +27,10 @@ class StatsAppChart extends StatsOverviewWidget
                 ->descriptionIcon('heroicon-o-arrow-trending-up')
                 ->color('danger'),
 
-        Stat::make('Employees', Employee::query()->whereBelongsTo(Filament::getTenant())->count())
+            Stat::make('Employees', Employee::query()->whereBelongsTo(Filament::getTenant())->count())
                 ->description('All employees from the DB')
                 ->descriptionIcon('heroicon-o-users')
-                ->color('warning')
+                ->color('warning'),
         ];
     }
 }
