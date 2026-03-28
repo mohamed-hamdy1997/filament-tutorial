@@ -2,7 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\VerifyIsAdmin;
 use App\Models\Team;
+use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -26,10 +28,14 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->favicon(asset('images/logo.jpeg'))
-            ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->userMenuItems([
+                Action::make('Dashboard')
+                    ->icon('heroicon-o-home')
+                    ->url('/app')
+                    ->action('app'),
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -58,9 +64,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
+                VerifyIsAdmin::class
             ]);
     }
 }

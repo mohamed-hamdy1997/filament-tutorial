@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 use App\Filament\App\Pages\Tenancy\RegisterTeam;
 use App\Models\Team;
+use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,9 +28,19 @@ class AppPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('app')
             ->path('app')
             ->login()
+            ->registration()
+            ->profile()
+            ->userMenuItems([
+                Action::make('Admin Panel')
+                    ->icon('heroicon-o-cog-8-tooth')
+                    ->url('/admin')
+                    ->action('admin')
+                ->visible(fn() : bool => auth()->user()?->is_admin)
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
